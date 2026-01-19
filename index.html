@@ -1,0 +1,1471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revelate | Faith-Based Journaling for Clarity & Peace</title>
+    <meta name="description" content="Find clarity through faith-based journaling, reflection, and Scripture-grounded guidance. Revelate helps you process emotions and grow spiritually.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,500;6..12,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --grey-blue: #3b4c6a;
+            --grey-blue-light: #4a5d7a;
+            --grey-blue-dark: #2d3a52;
+            --gold: #d4af37;
+            --gold-light: #e5c65a;
+            --gold-dark: #b8962e;
+            --light-gray: #f9f9f9;
+            --cream: #fdfcfa;
+            --text-dark: #2a2a2a;
+            --text-medium: #5a5a5a;
+            --text-light: #8a8a8a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Nunito Sans', sans-serif;
+            font-weight: 400;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background-color: var(--cream);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 10px 0;
+            transition: all 0.4s ease;
+        }
+
+        nav .logo img {
+            margin: -30px 0;
+        }
+
+        nav.scrolled {
+            background: rgba(253, 252, 250, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 2px 40px rgba(59, 76, 106, 0.08);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .logo-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--grey-blue);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .logo-cross {
+            color: var(--gold);
+            font-size: 1.8rem;
+            margin-left: -4px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--grey-blue);
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--grey-blue);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background: var(--grey-blue-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(59, 76, 106, 0.25);
+        }
+
+        .nav-cta-wrapper {
+            position: relative;
+        }
+
+        .nav-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            margin-top: 8px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(59, 76, 106, 0.2);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            min-width: 180px;
+            overflow: hidden;
+            z-index: 1001;
+        }
+
+        .nav-cta-wrapper:hover .nav-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .nav-dropdown a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 18px;
+            color: var(--grey-blue);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: background 0.2s ease;
+        }
+
+        .nav-dropdown a:hover {
+            background: var(--light-gray);
+        }
+
+        .nav-dropdown a svg {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .mobile-menu span {
+            width: 24px;
+            height: 2px;
+            background: var(--grey-blue);
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 120px 0 80px;
+            background: linear-gradient(160deg, var(--cream) 0%, var(--light-gray) 50%, #f0f2f5 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 150%;
+            background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.06) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '✝';
+            position: absolute;
+            top: 20%;
+            right: 8%;
+            font-size: 400px;
+            color: var(--gold);
+            opacity: 0.04;
+            pointer-events: none;
+            font-family: serif;
+        }
+
+        .hero .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .hero-content {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-tagline {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(59, 76, 106, 0.08);
+            padding: 8px 18px;
+            border-radius: 30px;
+            margin-bottom: 28px;
+        }
+
+        .hero-tagline span {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--grey-blue);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .hero-tagline::before {
+            content: '✦';
+            color: var(--gold);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.8rem, 5vw, 4rem);
+            color: var(--grey-blue-dark);
+            margin-bottom: 24px;
+            line-height: 1.1;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--gold-dark);
+        }
+
+        .hero-description {
+            font-size: 1.15rem;
+            color: var(--text-medium);
+            margin-bottom: 40px;
+            max-width: 480px;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--grey-blue);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: var(--grey-blue-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(59, 76, 106, 0.3);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            color: var(--grey-blue);
+            padding: 16px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border: 2px solid rgba(59, 76, 106, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--gold);
+            color: var(--gold-dark);
+        }
+
+        .hero-visual {
+            position: relative;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .phone-mockup {
+            position: relative;
+            max-width: 320px;
+            margin: 0 auto;
+        }
+
+        .phone-frame {
+            background: var(--grey-blue-dark);
+            border-radius: 40px;
+            padding: 12px;
+            box-shadow: 
+                0 60px 100px rgba(59, 76, 106, 0.3),
+                0 20px 40px rgba(59, 76, 106, 0.2),
+                inset 0 0 0 2px rgba(255, 255, 255, 0.1);
+        }
+
+        .phone-screen {
+            background: var(--cream);
+            border-radius: 32px;
+            overflow: hidden;
+            aspect-ratio: 9/19;
+        }
+
+        .app-preview {
+            height: 100%;
+            padding: 24px 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .app-header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .app-header-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--grey-blue);
+            letter-spacing: 0.1em;
+        }
+
+        .app-greeting {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            color: var(--grey-blue-dark);
+            margin-bottom: 4px;
+        }
+
+        .app-date {
+            font-size: 0.75rem;
+            color: var(--text-light);
+        }
+
+        .mood-section {
+            margin-bottom: 24px;
+        }
+
+        .mood-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--text-light);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .mood-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+        }
+
+        .mood-btn {
+            aspect-ratio: 1;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            background: var(--light-gray);
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .mood-btn.active {
+            background: rgba(212, 175, 55, 0.15);
+            border-color: var(--gold);
+        }
+
+        .mood-btn span {
+            font-size: 0.55rem;
+            color: var(--text-medium);
+            margin-top: 2px;
+        }
+
+        .journal-preview {
+            flex: 1;
+            background: white;
+            border-radius: 16px;
+            padding: 16px;
+            box-shadow: 0 4px 20px rgba(59, 76, 106, 0.08);
+        }
+
+        .journal-prompt {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            margin-bottom: 8px;
+            font-style: italic;
+        }
+
+        .journal-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .floating-verse {
+            position: absolute;
+            top: 10%;
+            right: -60px;
+            background: white;
+            padding: 20px 24px;
+            border-radius: 16px;
+            box-shadow: 0 20px 50px rgba(59, 76, 106, 0.15);
+            max-width: 200px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .floating-verse p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.9rem;
+            font-style: italic;
+            color: var(--grey-blue);
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .floating-verse cite {
+            font-size: 0.75rem;
+            color: var(--gold-dark);
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 120px 0;
+            background: white;
+            position: relative;
+        }
+
+        .features::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto 80px;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gold-dark);
+            margin-bottom: 16px;
+        }
+
+        .section-label::before,
+        .section-label::after {
+            content: '';
+            width: 24px;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--grey-blue-dark);
+            margin-bottom: 20px;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--text-medium);
+            line-height: 1.8;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .feature-card {
+            padding: 40px 32px;
+            border-radius: 24px;
+            background: var(--light-gray);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 60px rgba(59, 76, 106, 0.12);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 16px rgba(59, 76, 106, 0.08);
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            color: var(--grey-blue-dark);
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: var(--text-medium);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 120px 0;
+            background: linear-gradient(180deg, var(--light-gray) 0%, var(--cream) 100%);
+        }
+
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            position: relative;
+        }
+
+        .steps-container::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 12%;
+            right: 12%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold-light), var(--gold), var(--gold-light));
+            opacity: 0.4;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 8px 32px rgba(59, 76, 106, 0.12);
+        }
+
+        .step-number span {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--gold-dark);
+        }
+
+        .step h3 {
+            font-size: 1.25rem;
+            color: var(--grey-blue-dark);
+            margin-bottom: 12px;
+        }
+
+        .step p {
+            font-size: 0.9rem;
+            color: var(--text-medium);
+            line-height: 1.6;
+            max-width: 220px;
+            margin: 0 auto;
+        }
+
+        /* Scripture Section */
+        .scripture-section {
+            padding: 120px 0;
+            background: var(--grey-blue-dark);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scripture-section::before {
+            content: '"';
+            position: absolute;
+            top: -60px;
+            left: 5%;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 400px;
+            color: var(--gold);
+            opacity: 0.08;
+            line-height: 1;
+        }
+
+        .scripture-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .scripture-content blockquote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            font-style: italic;
+            color: white;
+            line-height: 1.5;
+            margin-bottom: 32px;
+        }
+
+        .scripture-content cite {
+            font-size: 1rem;
+            color: var(--gold);
+            font-style: normal;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 120px 0;
+            background: white;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .testimonial-card {
+            padding: 40px;
+            border-radius: 24px;
+            background: var(--light-gray);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 80px;
+            color: var(--gold);
+            opacity: 0.3;
+            position: absolute;
+            top: 16px;
+            left: 32px;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            font-style: italic;
+            color: var(--grey-blue-dark);
+            line-height: 1.7;
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .author-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        .author-info h4 {
+            font-family: 'Nunito Sans', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--grey-blue-dark);
+        }
+
+        .author-info p {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 120px 0;
+            background: linear-gradient(160deg, var(--cream) 0%, #f0f2f5 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '✝';
+            position: absolute;
+            bottom: -100px;
+            left: 5%;
+            font-size: 500px;
+            color: var(--gold);
+            opacity: 0.03;
+            font-family: serif;
+        }
+
+        .cta-content {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-content h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--grey-blue-dark);
+            margin-bottom: 20px;
+        }
+
+        .cta-content p {
+            font-size: 1.15rem;
+            color: var(--text-medium);
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .app-store-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--grey-blue-dark);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .app-store-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(59, 76, 106, 0.25);
+        }
+
+        .app-store-btn svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        .app-store-btn .btn-text {
+            text-align: left;
+        }
+
+        .app-store-btn .btn-text span {
+            display: block;
+            font-size: 0.65rem;
+            opacity: 0.8;
+        }
+
+        .app-store-btn .btn-text strong {
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--grey-blue-dark);
+            padding: 80px 0 40px;
+            color: white;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand {
+            max-width: 300px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo .logo-text {
+            color: white;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .footer-links h4 {
+            font-family: 'Nunito Sans', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 24px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                gap: 60px;
+                text-align: center;
+            }
+
+            .hero-content {
+                order: 1;
+            }
+
+            .hero-visual {
+                order: 0;
+            }
+
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .floating-verse {
+                display: none;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .steps-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+
+            .steps-container::before {
+                display: none;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .nav-cta {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero {
+                padding: 100px 0 60px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .steps-container {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .phone-mockup {
+                max-width: 280px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .app-store-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="Logos/21.png" alt="Revelate" style="height: 120px;">
+            </a>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#testimonials">Stories</a></li>
+            </ul>
+            <div class="nav-cta-wrapper">
+                <a href="#download" class="nav-cta">Download Free</a>
+                <div class="nav-dropdown">
+                    <a href="https://apps.apple.com/us/app/revelate-app/id6749314745" target="_blank" rel="noopener noreferrer">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                        </svg>
+                        App Store
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=com.scaleup.revelate&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                            <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
+                        </svg>
+                        Google Play
+                    </a>
+                </div>
+            </div>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-tagline">
+                    <span>Faith-Based Journaling</span>
+                </div>
+                <h1>Find clarity through <em>reflection</em> and Scripture</h1>
+                <p class="hero-description">Revelate helps you process your emotions, find peace in God's Word, and grow spiritually—one honest journal entry at a time.</p>
+                <div class="hero-buttons">
+                    <a href="#download" class="btn-primary">
+                        <span>Start Your Journey</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    <a href="#how-it-works" class="btn-secondary">
+                        <span>See How It Works</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="phone-mockup">
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <div class="app-preview">
+                                <div class="app-header">
+                                    <div class="app-header-logo">REVELATE ✝</div>
+                                    <div class="app-greeting">Good morning, Sarah</div>
+                                    <div class="app-date">Sunday, January 4</div>
+                                </div>
+                                <div class="mood-section">
+                                    <div class="mood-label">How are you feeling?</div>
+                                    <div class="mood-grid">
+                                        <div class="mood-btn">😌<span>Peaceful</span></div>
+                                        <div class="mood-btn active">😟<span>Anxious</span></div>
+                                        <div class="mood-btn">🙏<span>Grateful</span></div>
+                                        <div class="mood-btn">😔<span>Heavy</span></div>
+                                    </div>
+                                </div>
+                                <div class="journal-preview">
+                                    <div class="journal-prompt">What's weighing on your heart today?</div>
+                                    <div class="journal-text">I've been feeling overwhelmed with work deadlines and struggling to find moments of peace. I know I should trust God more, but it's hard when everything feels urgent...</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="floating-verse">
+                    <p>"Cast all your anxiety on him because he cares for you."</p>
+                    <cite>— 1 Peter 5:7</cite>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Features</div>
+                <h2>Tools for your spiritual journey</h2>
+                <p>Revelate meets you where you are—with compassion, Scripture, and gentle guidance toward growth.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Mood Check-ins</h3>
+                    <p>Start each session by honestly naming how you feel—anxious, grateful, confused, or anything in between. No judgment, just awareness.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✍️</div>
+                    <h3>Guided Journaling</h3>
+                    <p>Thoughtful prompts help you explore your thoughts and feelings more deeply. Write freely, with autosave keeping every word safe.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📖</div>
+                    <h3>Scripture Reflections</h3>
+                    <p>Receive personalized Bible verses with gentle explanations that speak directly to what you're experiencing.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🙏</div>
+                    <h3>Practical Next Steps</h3>
+                    <p>Each reflection includes one small, doable action or prayer—helping you move from insight to real growth.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Pattern Discovery</h3>
+                    <p>Over time, notice spiritual and emotional patterns. See how God is working in your life across weeks and months.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💜</div>
+                    <h3>Grace-Filled Progress</h3>
+                    <p>Gentle consistency tracking celebrates your faithfulness without guilt or shame. Every entry matters.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">How It Works</div>
+                <h2>Simple steps to deeper faith</h2>
+                <p>Revelate guides you through a meaningful reflection in just a few minutes.</p>
+            </div>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number"><span>1</span></div>
+                    <h3>Check In</h3>
+                    <p>Select the mood that best describes how you're feeling right now.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number"><span>2</span></div>
+                    <h3>Reflect</h3>
+                    <p>Write honestly about what's on your heart, guided by thoughtful prompts.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number"><span>3</span></div>
+                    <h3>Receive</h3>
+                    <p>Get a compassionate reflection with Scripture that meets you where you are.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number"><span>4</span></div>
+                    <h3>Grow</h3>
+                    <p>Take one small step forward—a prayer, an action, a new perspective.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripture Section -->
+    <section class="scripture-section">
+        <div class="container">
+            <div class="scripture-content">
+                <blockquote>"Search me, God, and know my heart; test me and know my anxious thoughts. See if there is any offensive way in me, and lead me in the way everlasting."</blockquote>
+                <cite>— Psalm 139:23-24</cite>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Stories</div>
+                <h2>Finding peace, one entry at a time</h2>
+                <p>Hear from others who've found clarity and comfort through faith-based reflection.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Revelate helped me stop running from my anxiety and actually bring it to God. The Scripture reflections always feel like exactly what I needed to hear.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">M</div>
+                        <div class="author-info">
+                            <h4>Michelle T.</h4>
+                            <p>Using Revelate for 4 months</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">I've tried journaling apps before, but this is different. It's not about productivity—it's about honestly connecting with God about what I'm going through.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">J</div>
+                        <div class="author-info">
+                            <h4>James R.</h4>
+                            <p>Using Revelate for 6 months</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">The mood tracking helped me realize I was carrying more grief than I admitted. Revelate gave me a safe space to process it with God's Word as my anchor.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">S</div>
+                        <div class="author-info">
+                            <h4>Sarah L.</h4>
+                            <p>Using Revelate for 8 months</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="download">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Begin your journey toward clarity</h2>
+                <p>Download Revelate free and discover how faith-based journaling can transform your relationship with God and yourself.</p>
+                <div class="cta-buttons">
+                    <a href="https://apps.apple.com/us/app/revelate-app/id6749314745" class="app-store-btn" target="_blank" rel="noopener noreferrer">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                        </svg>
+                        <div class="btn-text">
+                            <span>Download on the</span>
+                            <strong>App Store</strong>
+                        </div>
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=com.scaleup.revelate&pcampaignid=web_share" class="app-store-btn" target="_blank" rel="noopener noreferrer">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
+                        </svg>
+                        <div class="btn-text">
+                            <span>Get it on</span>
+                            <strong>Google Play</strong>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="Logos/19.png" alt="Revelate" style="height: 125px; margin: -40px 0;">
+                    </div>
+                    <p>Find clarity through faith-based journaling, reflection, and Scripture-grounded guidance. Your journey toward deeper faith starts here.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#testimonials">Stories</a></li>
+                        <li><a href="#download">Download</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="mission.html">Our Mission</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="press.html">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Help Center</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener noreferrer">Terms of Service</a></li>
+                        <li><a href="contact.html">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Revelate. Made with faith and love.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Add fade-in animation to sections
+        document.querySelectorAll('.feature-card, .step, .testimonial-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

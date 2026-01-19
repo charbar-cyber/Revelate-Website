@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Press | Revelate</title>
+    <meta name="description" content="Press inquiries, media assets, and news about Revelate - the faith-based journaling app for clarity and peace.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,500;6..12,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --grey-blue: #3b4c6a;
+            --grey-blue-light: #4a5d7a;
+            --grey-blue-dark: #2d3a52;
+            --gold: #d4af37;
+            --gold-light: #e5c65a;
+            --gold-dark: #b8962e;
+            --light-gray: #f9f9f9;
+            --cream: #fdfcfa;
+            --text-dark: #2a2a2a;
+            --text-medium: #5a5a5a;
+            --text-light: #8a8a8a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Nunito Sans', sans-serif;
+            font-weight: 400;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background-color: var(--cream);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 10px 0;
+            background: rgba(253, 252, 250, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 2px 40px rgba(59, 76, 106, 0.08);
+        }
+
+        nav .logo img {
+            margin: -30px 0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--grey-blue);
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--grey-blue);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background: var(--grey-blue-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(59, 76, 106, 0.25);
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .mobile-menu span {
+            width: 24px;
+            height: 2px;
+            background: var(--grey-blue);
+            transition: all 0.3s ease;
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 180px 0 80px;
+            background: linear-gradient(160deg, var(--cream) 0%, var(--light-gray) 50%, #f0f2f5 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 150%;
+            background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.06) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .page-header h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            color: var(--grey-blue-dark);
+            margin-bottom: 20px;
+        }
+
+        .page-header p {
+            font-size: 1.15rem;
+            color: var(--text-medium);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Press Section */
+        .press-section {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .press-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .press-card {
+            background: var(--light-gray);
+            border-radius: 24px;
+            padding: 48px;
+            height: fit-content;
+        }
+
+        .press-card h2 {
+            font-size: 1.8rem;
+            color: var(--grey-blue-dark);
+            margin-bottom: 20px;
+        }
+
+        .press-card p {
+            color: var(--text-medium);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+
+        .press-contact {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .press-contact-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .press-contact-info h4 {
+            font-family: 'Nunito Sans', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-light);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .press-contact-info a {
+            color: var(--grey-blue);
+            font-size: 1.05rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .press-contact-info a:hover {
+            color: var(--gold-dark);
+        }
+
+        /* Media Kit */
+        .media-kit-card {
+            background: var(--grey-blue-dark);
+            color: white;
+        }
+
+        .media-kit-card h2 {
+            color: white;
+        }
+
+        .media-kit-card p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .media-assets {
+            display: grid;
+            gap: 16px;
+        }
+
+        .media-asset {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .media-asset-icon {
+            font-size: 1.5rem;
+        }
+
+        .media-asset-info h4 {
+            font-family: 'Nunito Sans', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 4px;
+        }
+
+        .media-asset-info p {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin: 0;
+        }
+
+        /* About Revelate Summary */
+        .about-summary {
+            padding: 80px 0;
+            background: var(--cream);
+        }
+
+        .about-summary-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gold-dark);
+            margin-bottom: 16px;
+        }
+
+        .section-label::before,
+        .section-label::after {
+            content: '';
+            width: 24px;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        .about-summary-content h2 {
+            font-size: 2rem;
+            color: var(--grey-blue-dark);
+            margin-bottom: 24px;
+        }
+
+        .about-summary-content p {
+            color: var(--text-medium);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .about-summary-content p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--grey-blue-dark);
+            padding: 80px 0 40px;
+            color: white;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand {
+            max-width: 300px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo .logo-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: white;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .logo-cross {
+            color: var(--gold);
+            font-size: 1.8rem;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .footer-links h4 {
+            font-family: 'Nunito Sans', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 24px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .press-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .nav-cta {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .page-header {
+                padding: 140px 0 60px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="Logos/21.png" alt="Revelate" style="height: 120px;">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#features">Features</a></li>
+                <li><a href="index.html#how-it-works">How It Works</a></li>
+                <li><a href="index.html#testimonials">Stories</a></li>
+            </ul>
+            <a href="index.html#download" class="nav-cta">Download Free</a>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Press</h1>
+            <p>Media resources and press inquiries for Revelate.</p>
+        </div>
+    </section>
+
+    <!-- Press Section -->
+    <section class="press-section">
+        <div class="container">
+            <div class="press-grid">
+                <div class="press-card">
+                    <h2>Press Inquiries</h2>
+                    <p>Revelate is currently in early-stage development. We welcome media inquiries about our faith-based journaling platform and its mission to help people find clarity through reflection and Scripture.</p>
+                    <p>For interviews, story ideas, or general press questions:</p>
+                    <div class="press-contact">
+                        <div class="press-contact-icon">📰</div>
+                        <div class="press-contact-info">
+                            <h4>Press Email</h4>
+                            <a href="mailto:info@revelateapp.com">info@revelateapp.com</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="press-card media-kit-card">
+                    <h2>Media Kit</h2>
+                    <p>Need logos, screenshots, or founder information? Our media kit is available upon request.</p>
+                    <div class="media-assets">
+                        <div class="media-asset">
+                            <span class="media-asset-icon">🎨</span>
+                            <div class="media-asset-info">
+                                <h4>Logo Package</h4>
+                                <p>Various formats and sizes</p>
+                            </div>
+                        </div>
+                        <div class="media-asset">
+                            <span class="media-asset-icon">📱</span>
+                            <div class="media-asset-info">
+                                <h4>App Screenshots</h4>
+                                <p>High-resolution product images</p>
+                            </div>
+                        </div>
+                        <div class="media-asset">
+                            <span class="media-asset-icon">👤</span>
+                            <div class="media-asset-info">
+                                <h4>Founder Bio</h4>
+                                <p>Background and headshot</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Summary for Press -->
+    <section class="about-summary">
+        <div class="container">
+            <div class="about-summary-content">
+                <div class="section-label">About Revelate</div>
+                <h2>Faith-based journaling for clarity and peace</h2>
+                <p>Revelate is a guided journaling and reflection platform designed to help people slow down, think clearly, and align their actions with their values. Through mood tracking, thoughtful prompts, and Scripture-grounded insights, Revelate provides a single, intentional space for spiritual growth and self-discovery.</p>
+                <p>Founded by Charlie Barmore, CPA, Revelate combines modern technology with timeless principles—using thoughtful design to support reflection without replacing wisdom.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="Logos/19.png" alt="Revelate" style="height: 125px; margin: -40px 0;">
+                    </div>
+                    <p>Find clarity through faith-based journaling, reflection, and Scripture-grounded guidance. Your journey toward deeper faith starts here.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="index.html#how-it-works">How It Works</a></li>
+                        <li><a href="index.html#testimonials">Stories</a></li>
+                        <li><a href="index.html#download">Download</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="mission.html">Our Mission</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="press.html">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Help Center</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener noreferrer">Terms of Service</a></li>
+                        <li><a href="contact.html">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Revelate. Made with faith and love.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

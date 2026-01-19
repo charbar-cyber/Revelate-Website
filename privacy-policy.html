@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Revelate</title>
+    <meta name="description" content="Revelate's Privacy Policy - Learn how we collect, use, and protect your information.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,500;6..12,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --grey-blue: #3b4c6a;
+            --grey-blue-light: #4a5d7a;
+            --grey-blue-dark: #2d3a52;
+            --gold: #d4af37;
+            --gold-light: #e5c65a;
+            --gold-dark: #b8962e;
+            --light-gray: #f9f9f9;
+            --cream: #fdfcfa;
+            --text-dark: #2a2a2a;
+            --text-medium: #5a5a5a;
+            --text-light: #8a8a8a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Nunito Sans', sans-serif;
+            font-weight: 400;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background-color: var(--cream);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 10px 0;
+            background: rgba(253, 252, 250, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 2px 40px rgba(59, 76, 106, 0.08);
+        }
+
+        nav .logo img {
+            margin: -30px 0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--grey-blue);
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--grey-blue);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background: var(--grey-blue-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(59, 76, 106, 0.25);
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .mobile-menu span {
+            width: 24px;
+            height: 2px;
+            background: var(--grey-blue);
+            transition: all 0.3s ease;
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 180px 0 80px;
+            background: linear-gradient(160deg, var(--cream) 0%, var(--light-gray) 50%, #f0f2f5 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 150%;
+            background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.06) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .page-header h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            color: var(--grey-blue-dark);
+            margin-bottom: 20px;
+        }
+
+        .page-header p {
+            font-size: 1.15rem;
+            color: var(--text-medium);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Legal Content */
+        .legal-content {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .legal-content .container {
+            max-width: 800px;
+        }
+
+        .effective-date {
+            display: inline-block;
+            background: var(--light-gray);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: var(--text-medium);
+            margin-bottom: 32px;
+        }
+
+        .legal-intro {
+            font-size: 1.1rem;
+            color: var(--text-medium);
+            line-height: 1.8;
+            margin-bottom: 48px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid rgba(59, 76, 106, 0.1);
+        }
+
+        .legal-section {
+            margin-bottom: 48px;
+        }
+
+        .legal-section h2 {
+            font-size: 1.5rem;
+            color: var(--grey-blue-dark);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .legal-section h2 .section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold));
+            border-radius: 50%;
+            font-family: 'Nunito Sans', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        .legal-section p {
+            color: var(--text-medium);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .legal-section ul {
+            list-style: none;
+            margin: 16px 0;
+        }
+
+        .legal-section ul li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 12px;
+            color: var(--text-medium);
+            line-height: 1.7;
+        }
+
+        .legal-section ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 50%;
+        }
+
+        .legal-section ul li strong {
+            color: var(--grey-blue);
+        }
+
+        .contact-box {
+            background: var(--light-gray);
+            border-radius: 16px;
+            padding: 32px;
+            margin-top: 48px;
+            border-left: 4px solid var(--gold);
+        }
+
+        .contact-box h3 {
+            font-size: 1.3rem;
+            color: var(--grey-blue-dark);
+            margin-bottom: 12px;
+        }
+
+        .contact-box p {
+            color: var(--text-medium);
+            margin: 0;
+        }
+
+        .contact-box a {
+            color: var(--gold-dark);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-box a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--grey-blue-dark);
+            padding: 80px 0 40px;
+            color: white;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand {
+            max-width: 300px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo .logo-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: white;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .logo-cross {
+            color: var(--gold);
+            font-size: 1.8rem;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .footer-links h4 {
+            font-family: 'Nunito Sans', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 24px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .nav-cta {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .page-header {
+                padding: 140px 0 60px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="Logos/21.png" alt="Revelate" style="height: 120px;">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#features">Features</a></li>
+                <li><a href="index.html#how-it-works">How It Works</a></li>
+                <li><a href="index.html#testimonials">Stories</a></li>
+            </ul>
+            <a href="index.html#download" class="nav-cta">Download Free</a>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Privacy Policy</h1>
+            <p>How we collect, use, and protect your information.</p>
+        </div>
+    </section>
+
+    <!-- Legal Content -->
+    <section class="legal-content">
+        <div class="container">
+            <div class="effective-date">Effective Date: January 1, 2026</div>
+
+            <p class="legal-intro">This Privacy Policy explains how Revelate ("we," "our," or "us") collects, uses, and protects your information.</p>
+
+            <div class="legal-section">
+                <h2><span class="section-number">1</span> Information We Collect</h2>
+                <p>We may collect:</p>
+                <ul>
+                    <li><strong>Personal Information:</strong> Name, email address, account details.</li>
+                    <li><strong>Usage Data:</strong> Device type, app interactions, IP address.</li>
+                    <li><strong>Content Data:</strong> Journal entries, mood selections, scripture preferences.</li>
+                </ul>
+            </div>
+
+            <div class="legal-section">
+                <h2><span class="section-number">2</span> How We Use Your Information</h2>
+                <p>We use your information to:</p>
+                <ul>
+                    <li>Provide and personalize the Service.</li>
+                    <li>Send push notifications or SMS messages (via Twilio).</li>
+                    <li>Improve the app's features and functionality.</li>
+                    <li>Respond to user inquiries and support requests.</li>
+                </ul>
+            </div>
+
+            <div class="legal-section">
+                <h2><span class="section-number">3</span> How We Share Information</h2>
+                <p>We do not sell your personal data. We may share it only with:</p>
+                <ul>
+                    <li>Service providers (e.g., Twilio for messaging, hosting providers).</li>
+                    <li>Legal authorities if required by law.</li>
+                </ul>
+            </div>
+
+            <div class="legal-section">
+                <h2><span class="section-number">4</span> Data Storage and Security</h2>
+                <p>Your data is stored securely using encryption and industry-standard protections. While we take reasonable measures to safeguard your information, no system is 100% secure.</p>
+            </div>
+
+            <div class="legal-section">
+                <h2><span class="section-number">5</span> Your Rights</h2>
+                <p>You may:</p>
+                <ul>
+                    <li>Request a copy of your personal data.</li>
+                    <li>Ask us to delete your account and associated data.</li>
+                    <li>Opt out of notifications.</li>
+                </ul>
+            </div>
+
+            <div class="legal-section">
+                <h2><span class="section-number">6</span> Children's Privacy</h2>
+                <p>We do not knowingly collect personal data from children under 13.</p>
+            </div>
+
+            <div class="legal-section">
+                <h2><span class="section-number">7</span> Changes to this Policy</h2>
+                <p>We may update this Privacy Policy from time to time. Any changes will be posted in the app with the updated effective date.</p>
+            </div>
+
+            <div class="contact-box">
+                <h3>Contact Us</h3>
+                <p>For privacy-related questions, contact <a href="mailto:info@revelate.co">info@revelate.co</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="Logos/19.png" alt="Revelate" style="height: 125px; margin: -40px 0;">
+                    </div>
+                    <p>Find clarity through faith-based journaling, reflection, and Scripture-grounded guidance. Your journey toward deeper faith starts here.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="index.html#how-it-works">How It Works</a></li>
+                        <li><a href="index.html#testimonials">Stories</a></li>
+                        <li><a href="index.html#download">Download</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="mission.html">Our Mission</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="press.html">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Help Center</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener noreferrer">Terms of Service</a></li>
+                        <li><a href="contact.html">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Revelate. Made with faith and love.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
