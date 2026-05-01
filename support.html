@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support | Revelate</title>
+    <meta name="description" content="Get help with Revelate. FAQ, account questions, and contact information for the Revelate app.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,500;6..12,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --grey-blue: #3b4c6a;
+            --grey-blue-light: #4a5d7a;
+            --grey-blue-dark: #2d3a52;
+            --gold: #d4af37;
+            --gold-light: #e5c65a;
+            --gold-dark: #b8962e;
+            --light-gray: #f9f9f9;
+            --cream: #fdfcfa;
+            --text-dark: #2a2a2a;
+            --text-medium: #5a5a5a;
+            --text-light: #8a8a8a;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Nunito Sans', sans-serif; font-weight: 400; line-height: 1.7; color: var(--text-dark); background-color: var(--cream); overflow-x: hidden; }
+        h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 500; line-height: 1.2; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 10px 0; background: rgba(253, 252, 250, 0.95); backdrop-filter: blur(20px); box-shadow: 0 2px 40px rgba(59, 76, 106, 0.08); }
+        nav .logo img { margin: -30px 0; }
+        nav .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+        .nav-links { display: flex; gap: 40px; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--grey-blue); font-size: 0.9rem; font-weight: 500; letter-spacing: 0.05em; transition: color 0.3s ease; position: relative; }
+        .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--gold); transition: width 0.3s ease; }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-cta { background: var(--grey-blue); color: white; padding: 12px 28px; border-radius: 30px; text-decoration: none; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.03em; transition: all 0.3s ease; }
+        .nav-cta:hover { background: var(--grey-blue-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(59, 76, 106, 0.25); }
+        .mobile-menu { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 10px; }
+        .mobile-menu span { width: 24px; height: 2px; background: var(--grey-blue); transition: all 0.3s ease; }
+        .page-header { padding: 180px 0 80px; background: linear-gradient(160deg, var(--cream) 0%, var(--light-gray) 50%, #f0f2f5 100%); text-align: center; position: relative; overflow: hidden; }
+        .page-header::after { content: ''; position: absolute; top: -50%; right: -20%; width: 80%; height: 150%; background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.06) 0%, transparent 60%); pointer-events: none; }
+        .page-header h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); color: var(--grey-blue-dark); margin-bottom: 20px; }
+        .page-header p { font-size: 1.15rem; color: var(--text-medium); max-width: 600px; margin: 0 auto; }
+
+        .support-content { padding: 80px 0; background: white; }
+        .support-content .container { max-width: 800px; }
+
+        .faq-section { margin-bottom: 64px; }
+        .faq-section > h2 {
+            font-size: 1.75rem;
+            color: var(--grey-blue-dark);
+            margin-bottom: 32px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid var(--gold);
+            display: inline-block;
+        }
+
+        .faq-item {
+            margin-bottom: 24px;
+            padding: 24px 28px;
+            background: var(--light-gray);
+            border-radius: 12px;
+            border-left: 3px solid var(--gold);
+        }
+
+        .faq-item h3 {
+            font-family: 'Nunito Sans', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--grey-blue-dark);
+            margin-bottom: 8px;
+        }
+
+        .faq-item p {
+            color: var(--text-medium);
+            font-size: 0.97rem;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .faq-item p + p { margin-top: 8px; }
+
+        .faq-item a {
+            color: var(--gold-dark);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .faq-item a:hover { text-decoration: underline; }
+
+        .crisis-callout {
+            background: linear-gradient(135deg, #fff8e8 0%, #fff3d6 100%);
+            border-radius: 16px;
+            padding: 32px;
+            margin: 48px 0;
+            border-left: 4px solid #c0392b;
+        }
+
+        .crisis-callout h2 {
+            font-size: 1.4rem;
+            color: var(--grey-blue-dark);
+            margin-bottom: 12px;
+        }
+
+        .crisis-callout p {
+            color: var(--text-medium);
+            margin-bottom: 12px;
+        }
+
+        .crisis-callout strong {
+            color: #c0392b;
+            font-size: 1.1rem;
+        }
+
+        .contact-box { background: var(--light-gray); border-radius: 16px; padding: 32px; margin-top: 48px; border-left: 4px solid var(--gold); }
+        .contact-box h3 { font-size: 1.3rem; color: var(--grey-blue-dark); margin-bottom: 12px; }
+        .contact-box p { color: var(--text-medium); margin: 0 0 8px; }
+        .contact-box a { color: var(--gold-dark); text-decoration: none; font-weight: 600; }
+        .contact-box a:hover { text-decoration: underline; }
+
+        footer { background: var(--grey-blue-dark); padding: 80px 0 40px; color: white; }
+        .footer-content { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+        .footer-brand { max-width: 300px; }
+        .footer-logo { display: flex; align-items: center; gap: 8px; margin-bottom: 20px; }
+        .footer-brand p { color: rgba(255, 255, 255, 0.7); font-size: 0.95rem; line-height: 1.7; }
+        .footer-links h4 { font-family: 'Nunito Sans', sans-serif; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; }
+        .footer-links ul { list-style: none; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a { color: rgba(255, 255, 255, 0.7); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease; }
+        .footer-links a:hover { color: white; }
+        .footer-bottom { padding-top: 40px; border-top: 1px solid rgba(255, 255, 255, 0.1); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+        .footer-bottom p { color: rgba(255, 255, 255, 0.5); font-size: 0.85rem; }
+
+        @media (max-width: 1024px) { .footer-content { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) { .nav-links, .nav-cta { display: none; } .mobile-menu { display: flex; } .page-header { padding: 140px 0 60px; } .footer-content { grid-template-columns: 1fr; gap: 40px; } .footer-bottom { flex-direction: column; text-align: center; } }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="Logos/21.png" alt="Revelate" style="height: 120px;">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#features">Features</a></li>
+                <li><a href="index.html#how-it-works">How It Works</a></li>
+                <li><a href="index.html#testimonials">Stories</a></li>
+            </ul>
+            <a href="index.html#download" class="nav-cta">Download Free</a>
+            <div class="mobile-menu"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Support</h1>
+            <p>Need help with Revelate? You're in the right place.</p>
+        </div>
+    </section>
+
+    <section class="support-content">
+        <div class="container">
+
+            <div class="faq-section">
+                <h2>Quick answers</h2>
+
+                <div class="faq-item">
+                    <h3>How do I cancel my subscription?</h3>
+                    <p>On iPhone: open <strong>Settings → tap your name → Subscriptions → Revelate → Cancel Subscription</strong>. Cancellation takes effect at the end of your current billing period — you keep Premium access until then.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Can I get a refund?</h3>
+                    <p>Refunds are handled by Apple, not by us. Visit <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a> and select Revelate from the list. Apple's policies determine eligibility.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>I'm not seeing the 7-day free trial.</h3>
+                    <p>Free trials are offered to new subscribers only. If you've previously subscribed (even briefly), Apple may not show the trial again. This is Apple's policy and we have no control over it.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>How do I delete my account?</h3>
+                    <p>Open the app → Profile (tap your avatar at the top of any tab) → Settings → Delete Account. Your data is permanently deleted within 30 days (90 days for backup copies). This action cannot be undone.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>How do I change my email or password?</h3>
+                    <p>Profile → Edit Profile to change your name or photo. To change your password, use Profile → Change Password. To change your email, contact us — we handle email changes manually for security.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Why is Revi suggesting something incorrect?</h3>
+                    <p>Revi is an AI assistant — it's a tool, not a theological authority. It can occasionally produce factual errors or mistranslate scripture. Always verify specific claims, especially Bible references, against a trusted Bible. If you spot a recurring problem, please report it.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Can I use Revelate on Android?</h3>
+                    <p>We're iOS only at launch. Android support is on our roadmap.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Why is the app only in English?</h3>
+                    <p>We launched in English to focus on quality. Additional languages are on the roadmap.</p>
+                </div>
+            </div>
+
+            <div class="faq-section">
+                <h2>Reporting an issue</h2>
+                <div class="faq-item">
+                    <h3>The fastest way to get help</h3>
+                    <p>Email us at <a href="mailto:support@revelateapp.com">support@revelateapp.com</a> with:</p>
+                    <p>• A description of what happened<br>• The screen or feature involved<br>• A screenshot if possible<br>• Your iOS version and iPhone model (Settings → General → About)</p>
+                    <p>We aim to reply within 1 business day.</p>
+                </div>
+            </div>
+
+            <div class="faq-section">
+                <h2>Feature requests</h2>
+                <div class="faq-item">
+                    <h3>We read every email</h3>
+                    <p>If something would make Revelate more useful for you, send it to <a href="mailto:hello@revelateapp.com">hello@revelateapp.com</a>. We can't promise to build everything, but we genuinely take it into account.</p>
+                </div>
+            </div>
+
+            <div class="crisis-callout">
+                <h2>Pastoral or mental-health concerns</h2>
+                <p>Revelate is not a substitute for pastoral care, counseling, or professional mental-health treatment. If you're experiencing a crisis:</p>
+                <p><strong>United States: Call or text 988</strong> (Suicide and Crisis Lifeline)</p>
+                <p>Find a counselor: <a href="https://www.psychologytoday.com/us/therapists" target="_blank" rel="noopener">psychologytoday.com/us/therapists</a></p>
+                <p>Find a church: your local community has resources Revi can't replace.</p>
+            </div>
+
+            <div class="contact-box">
+                <h3>Contact</h3>
+                <p>Email: <a href="mailto:support@revelateapp.com">support@revelateapp.com</a></p>
+                <p>Company: Ledger Labs LLC</p>
+                <p style="margin-top: 12px; font-size: 0.95rem;">Built carefully by a small team. Thanks for using Revelate.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="Logos/19.png" alt="Revelate" style="height: 125px; margin: -40px 0;">
+                    </div>
+                    <p>Your AI faith companion. Spiritual growth that meets you where you are.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="index.html#how-it-works">How It Works</a></li>
+                        <li><a href="index.html#testimonials">Stories</a></li>
+                        <li><a href="index.html#download">Download</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="mission.html">Our Mission</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="press.html">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="support.html">Help Center</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Use</a></li>
+                        <li><a href="contact.html">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Ledger Labs LLC. Revelate is a product of Ledger Labs LLC.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
