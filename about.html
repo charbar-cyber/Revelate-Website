@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | Revelate</title>
-    <meta name="description" content="Learn about Revelate's story, founder Charlie Barmore, and the vision behind faith-based journaling for clarity and peace.">
+    <meta name="description" content="Learn about Revelate's story and the vision behind an AI faith companion built to help people grow spiritually every day.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,500;6..12,600&display=swap" rel="stylesheet">
@@ -250,15 +250,26 @@
             width: 120px;
             height: 120px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--grey-blue), var(--grey-blue-dark));
-            display: flex;
-            align-items: center;
-            justify-content: center;
             margin: 0 auto 24px;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 3rem;
-            font-weight: 600;
-            color: white;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(59, 76, 106, 0.15);
+        }
+
+        .founder-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .ledger-labs-link {
+            color: var(--grey-blue-dark);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .ledger-labs-link:hover {
+            color: var(--gold-dark);
         }
 
         .founder-card h3 {
@@ -462,7 +473,6 @@
             <ul class="nav-links">
                 <li><a href="index.html#features">Features</a></li>
                 <li><a href="index.html#how-it-works">How It Works</a></li>
-                <li><a href="index.html#testimonials">Stories</a></li>
             </ul>
             <a href="index.html#download" class="nav-cta">Download Free</a>
             <div class="mobile-menu">
@@ -477,7 +487,7 @@
     <section class="page-header">
         <div class="container">
             <h1>About Revelate</h1>
-            <p>The story behind faith-based journaling for clarity, peace, and intentional living.</p>
+            <p>The story behind an AI faith companion built to help people draw closer to God in their everyday life.</p>
         </div>
     </section>
 
@@ -487,20 +497,24 @@
             <div class="content-grid">
                 <div class="content-text">
                     <div class="section-label">Our Story</div>
-                    <h2>Born from a personal need for clarity</h2>
-                    <p>Revelate began as a personal tool. Charlie was frustrated by how fragmented reflection, faith, goal-setting, and decision-making had become—spread across notebooks, apps, and mental clutter.</p>
-                    <p>He wanted a single, intentional space to think clearly, journal honestly, and receive guidance grounded in truth rather than noise.</p>
-                    <p>What started as a private system evolved into Revelate: a guided journaling and reflection platform designed to help people slow down, think clearly, and align their actions with their values—using modern technology without losing depth or meaning.</p>
+                    <h2>Born from a belief that AI can help people draw closer to God</h2>
+                    <p>Revelate started with a simple conviction: AI could be one of the most powerful tools the church has seen for spiritual growth—if it's built carefully, grounded in Scripture, and shaped around the actual life of the user.</p>
+                    <p>Most faith apps treat people the same. Revelate is the opposite. From the first sign-up, you tell Revi how you want to be guided—Mentor, Friend, Scholar, or Prophet—and the AI shapes its tone, depth, and challenge accordingly.</p>
+                    <p>What you get is a daily rhythm of Scripture and prayer, a companion you can talk to about anything, and on-demand sermons and podcasts on any topic that's on your heart. All of it personal. All of it scripture-grounded. All of it built to walk with you.</p>
                 </div>
                 <div class="founder-card">
-                    <div class="founder-avatar">CB</div>
-                    <h3>Charlie Barmore</h3>
-                    <p class="title">Founder & Creator</p>
-                    <p>A CPA and product builder who has spent the last decade working at the intersection of business, technology, and personal development.</p>
+                    <a href="https://www.ledgerlabs.co/" target="_blank" rel="noopener noreferrer" class="ledger-labs-link">
+                        <div class="founder-avatar">
+                            <img src="Logos/ledger-labs-icon.svg" alt="Ledger Labs">
+                        </div>
+                        <h3>Built by Ledger Labs</h3>
+                    </a>
+                    <p class="title">Sheridan, Wyoming</p>
+                    <p>Ledger Labs LLC is a small studio building thoughtful tools at the intersection of faith and technology. Revelate is our first product. <a href="https://www.ledgerlabs.co/" target="_blank" rel="noopener noreferrer" class="ledger-labs-link" style="text-decoration: underline;">Learn more →</a></p>
                 </div>
             </div>
             <div class="team-note">
-                <p>Revelate is currently founder-led, with development support from a small group of independent designers and engineers. The product is intentionally built lean, focused, and user-first.</p>
+                <p>Revelate is built by a small, focused team. The product is intentionally lean and user-first, with every feature shaped around what actually helps people grow.</p>
             </div>
         </div>
     </section>
@@ -513,14 +527,13 @@
                     <div class="footer-logo">
                         <img src="Logos/19.png" alt="Revelate" style="height: 125px; margin: -40px 0;">
                     </div>
-                    <p>Find clarity through faith-based journaling, reflection, and Scripture-grounded guidance. Your journey toward deeper faith starts here.</p>
+                    <p>Your daily AI faith companion. Chat with Revi, generate sermons and podcasts, and build a Scripture-grounded rhythm of growth.</p>
                 </div>
                 <div class="footer-links">
                     <h4>Product</h4>
                     <ul>
                         <li><a href="index.html#features">Features</a></li>
                         <li><a href="index.html#how-it-works">How It Works</a></li>
-                        <li><a href="index.html#testimonials">Stories</a></li>
                         <li><a href="index.html#download">Download</a></li>
                     </ul>
                 </div>
@@ -544,7 +557,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Revelate. Made with faith and love.</p>
+                <p>&copy; 2026 Ledger Labs LLC. Made with faith and love.</p>
             </div>
         </div>
     </footer>
